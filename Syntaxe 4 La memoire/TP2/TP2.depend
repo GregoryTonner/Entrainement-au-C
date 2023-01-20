@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1674162686 source:c:\users\fleos\desktop\polytech\programmation en c\syntaxe 4 la memoire\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+

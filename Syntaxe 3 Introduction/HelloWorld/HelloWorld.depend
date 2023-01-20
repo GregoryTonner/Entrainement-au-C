@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1674154535 source:c:\users\fleos\desktop\polytech\programmation en c\helloworld\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1674155010 source:c:\users\fleos\desktop\polytech\programmation en c\3eme syntaxe\helloworld\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1674155925 source:c:\users\fleos\desktop\polytech\programmation en c\3eme syntaxe\helloworld\tp1.c
+	<stdio.h>
+	<stdlib.h>
+

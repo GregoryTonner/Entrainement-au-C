@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
+* Le char est compris entre -128 et 127
+* De 0 à 127 cela correspond à la décimale des caractère en ASCII
+* Pour la partie négatif, cela correspond à un calcul que l'on appel "Bit de complément à 1"
+* Et "Bit de complément à 2", "à 1" permet de passer un nombre négatif en positif et inversement pour "à 2"
+* Voir sur internet : Pour -4 on prend la valeur 4 en binaire, on inverse tous les bits
+* et on ajoute 1.
+*/
 /* ***EXO 1 ***
 int main()
 {

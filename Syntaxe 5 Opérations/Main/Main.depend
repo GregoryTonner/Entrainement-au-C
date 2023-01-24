@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1674549529 source:c:\users\user\documents\github\entrainement-au-c\syntaxe 5 opérations\main\main.c
+	<stdio.h>
+	<stdlib.h>
+

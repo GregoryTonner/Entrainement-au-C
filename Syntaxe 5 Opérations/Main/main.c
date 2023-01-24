@@ -14,7 +14,15 @@
 
 int main()
 {
-
+    /*Ce programme permet de lire dans la console l'age de l'utilisateur qui sera rentré*/
+    int age_utilisateur = 0;
+    float taille_utilisateur =0.0;
+    printf("Salut, quel est ton age et combien mesurez vous ?\n");
+    /*La fonction "scanf" permet de lire ce qui est rentré dans la console, il prend en paramètre
+      "%" quelque chose (en fonction de ce que l'on souhaite rentrer) puis on rentre notre variable
+      avec comme préfixe "&" qui permet de donner l'adresse de la variable et non son nom*/
+    scanf("%d%f",&age_utilisateur,&taille_utilisateur);
+    printf("Vous avez %d ans et votre taille est de %f m\n",age_utilisateur,taille_utilisateur);
     return 0;
 }
 

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1674643583 source:c:\users\user\documents\github\entrainement-au-c\syntaxe 7 conditions\pair_ou_impair\main.c
+	<stdio.h>
+	<stdlib.h>
+

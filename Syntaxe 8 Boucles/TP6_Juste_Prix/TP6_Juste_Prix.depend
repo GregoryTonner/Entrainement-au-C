@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1674748189 source:c:\users\user\documents\github\entrainement-au-c\syntaxe 8 boucles\tp6_juste_prix\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1674648546 source:c:\users\user\documents\github\entrainement-au-c\syntaxe 7 conditions\tp5\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -23,8 +23,8 @@
 int main()
 {
  // generation d'un nombre aleatoire
-    const int NB_MAX_ESSAIS = 10, VALEUR_MIN = 1, VALEUR_MAX = 100;;
-    int saisie_utilisateur =0, nombre_essais = NB_MAX_ESSAIS, nombre_aleatoire =0;
+    const int NB_MAX_ESSAIS = 10, VALEUR_MIN = 1, VALEUR_MAX = 100;
+    int saisie_utilisateur =0, nombre_aleatoire;
     char choix_joueur;
 
     printf("TP 6 Juste prix !\n");
@@ -35,7 +35,9 @@ int main()
         scanf("%c",&choix_joueur);
         if(choix_joueur == 'Y')
         {
-            srand(time(NULL)); // initialise le generateur pseudo aléatoire
+            int nombre_essais = NB_MAX_ESSAIS; // on initialise la variable nb essais ici car on souhaite qu'elle soit remise à 0 après chaques parties
+            srand(time(NULL)); // "srand" dit à notre ordi de générer un nombre à partir de "time"
+            // la fonction time permet de lire l'heure actuel sur la machine
             nombre_aleatoire = (rand() % (VALEUR_MAX - VALEUR_MIN + 1)) + VALEUR_MIN;
             /*
                 La fonction rand permet de créer un pseudo aléatoire qu'on calcul en fonction du
@@ -43,15 +45,16 @@ int main()
             */
             do
             {
-                printf("Quel est le juste prix ?\n");
+                printf("Quel est le juste prix entre 1 et 100 :\n");
                 scanf("%d",&saisie_utilisateur);
+                nombre_essais--;
                 if(saisie_utilisateur < nombre_aleatoire)
                     {
-                        printf("C'est plus haut, il te reste %d essais\n",--nombre_essais);
+                        printf("C'est plus haut, il te reste %d essais\n",nombre_essais);
                     }
                 else if(saisie_utilisateur>nombre_aleatoire)
                     {
-                        printf("C'est plus bas, il te reste %d essais\n",--nombre_essais);
+                        printf("C'est plus bas, il te reste %d essais\n",nombre_essais);
                     }
                 else
                     {
@@ -60,7 +63,7 @@ int main()
                     }
                 if(nombre_essais == 0)
                     {
-                        printf("Dommage c'est perdu !\n");
+                        printf("Dommage c'est perdu, le juste prix etait %d !\n",nombre);
                     }
             }while(saisie_utilisateur != nombre_aleatoire && nombre_essais != 0);
         }

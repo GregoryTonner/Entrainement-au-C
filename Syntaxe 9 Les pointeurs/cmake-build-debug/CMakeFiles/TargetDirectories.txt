@@ -1,0 +1,3 @@
+C:/Users/user/CLionProjects/Entrainement-au-C/Syntaxe 9 Les pointeurs/cmake-build-debug/CMakeFiles/Syntaxe_9_Les_pointeurs.dir
+C:/Users/user/CLionProjects/Entrainement-au-C/Syntaxe 9 Les pointeurs/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/CLionProjects/Entrainement-au-C/Syntaxe 9 Les pointeurs/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,35 +1,48 @@
 #include <stdio.h>
 #include "string.h"
-#include "stdlib.h"
-
 
 int main()
 {
     char mot_a_trouver[] = "PIGNOUF";
     char mot_affiche[] = "-------";
-    char saisie_utilisateur;
+    char saisie_utilisateur[8];
     int vie = 10, position_max =8, compteur;
 
     printf("Bienvenu sur votre jeu du pendu !\n");
     do
     {
         printf("Veuillez entrer votre caractere en majuscule :");
-        scanf("%c",&saisie_utilisateur); // Récupération saisie utilisateur
-        fflush(stdin); // Efface toutes les anciennes saisies dans le terminal stdin
+        fgets(saisie_utilisateur,position_max,stdin);               // scanf qui permet de récupérer des string
+        fflush(stdin);                                              // Efface toutes les anciennes saisies dans le terminal stdin
         compteur =0;
-        for(int position=0;position<position_max;position++)
+        if(strcmp(mot_a_trouver,saisie_utilisateur)==0)             // Si mot a trouver = saisie utilisateur
         {
-            if(saisie_utilisateur == mot_a_trouver[position])
+            strcpy(mot_affiche,mot_a_trouver);                      // Copy du tableau mot_a_trouver dans le tableau mot_affiche
+        }
+        for(int position=0;position<position_max;position++)        // on parcours chaque case du tableau
+        {
+            if(*saisie_utilisateur == mot_a_trouver[position])      // Si le caractère saisie = caractère dans le tableau du mot à trouver à la position "X"
             {
-                strcpy(&mot_affiche[position],&saisie_utilisateur);
-                compteur ++;
+                mot_affiche[position] = *saisie_utilisateur;        // Alors on copy ce caractère dans le tableau mot_affiche à cette même position "X"
+                compteur ++;                                        // On incrémente un compteur qui permet de savoir si un changement à etait fait dans notre tableau
             }
         }
-        printf("Votre mot : %s et il vous reste %d vie\n",mot_affiche,vie);
-        if(compteur == 0)
+        if(compteur == 0)                                           // Si compteur = 0 alors on à pas trouver une lettre qui match dans le mot a trouver
         {
-            vie--;
+            --vie;                                                  // Donc on perd un point de vie
             printf("Ce charactere n'est pas dans le mot a trouver !\n");
+        }
+        if(vie == 0)                                                // Si on a plus de vie alors on a perdu
+        {
+            printf("Tu as perdu, le mot qu'il fallait trouver etait : %s\n",mot_a_trouver);
+        }
+        else if(strcmp(mot_affiche,mot_a_trouver) == 0)             // Si le mot affiche = mot a trouver alors on a gagné
+        {
+            printf("Vous avez gagne le mot qu'il fallait trouver etait: %s en %d tentative\n",mot_a_trouver,10-vie);
+        }
+        else                                                        // Sinon il nous reste des lettre à trouver donc on indique l'état actuel de notre mot et de nos tentatives restantes
+        {
+            printf("Votre mot : %s et il vous reste %d vie\n",mot_affiche,vie);
         }
     }while(vie != 0 && strcmp(mot_affiche,mot_a_trouver)!=0); // Tant qu'il nous reste une vie ou que l'on a pas trouver la bon mot alors on boucle
 

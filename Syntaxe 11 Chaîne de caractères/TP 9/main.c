@@ -4,8 +4,15 @@
 int main()
 {
     char mot_a_trouver[] = "PIGNOUF";
-    char mot_affiche[] = "-------";
-    char saisie_utilisateur[8];
+    int taille_mot = strlen(mot_a_trouver); // Permet de rendre plus simple le changement de mot à trouver dans le code
+    char mot_affiche[taille_mot+1];         // taille_mot +1 car on oublie pas le caractère de fin de tableau "\0"
+    char saisie_utilisateur[taille_mot+1];
+    for(int i=0;i<taille_mot;i++)           // On parcours le tableau complet
+    {
+        mot_affiche[i]='-';                 // On place un "-" à afficher pour le joueur dans toutes les cases du tableau
+        mot_affiche[taille_mot]='\0';       // On place en fin de tableau le caractère "\0" pour indiquer à notre OS que l'on arrive à la fin du tableau
+    }
+
     int vie = 10, position_max =8, compteur;
 
     printf("Bienvenu sur votre jeu du pendu !\n");
@@ -17,14 +24,14 @@ int main()
         compteur =0;
         if(strcmp(mot_a_trouver,saisie_utilisateur)==0)             // Si mot a trouver = saisie utilisateur
         {
-            strcpy(mot_affiche,mot_a_trouver);                      // Copy du tableau mot_a_trouver dans le tableau mot_affiche
+            strcpy(mot_affiche,mot_a_trouver);                      // Copy du tableau mot_a_trouver dans le tableau mot_affiche (obligé car le signe "=" est utilisable que pour les char
         }
         for(int position=0;position<position_max;position++)        // on parcours chaque case du tableau
         {
             if(*saisie_utilisateur == mot_a_trouver[position])      // Si le caractère saisie = caractère dans le tableau du mot à trouver à la position "X"
             {
                 mot_affiche[position] = *saisie_utilisateur;        // Alors on copy ce caractère dans le tableau mot_affiche à cette même position "X"
-                compteur ++;                                        // On incrémente un compteur qui permet de savoir si un changement à etait fait dans notre tableau
+                compteur ++;                                        // On incrémente compteur uniquement lorsque l'on a trouvé un mot
             }
         }
         if(compteur == 0)                                           // Si compteur = 0 alors on à pas trouver une lettre qui match dans le mot a trouver

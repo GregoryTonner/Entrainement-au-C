@@ -1,0 +1,15 @@
+"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\Fleos\CLionProjects\Syntaxe 12 Fonctions\lance_de_des" -B "C:\Users\Fleos\CLionProjects\Syntaxe 12 Fonctions\lance_de_des\cmake-build-debug"
+-- The C compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+CMake Error at CMakeLists.txt:6 (add_executable):
+  The target name "lance_de_dé" is reserved or not valid for certain CMake
+  features, such as generator expressions, and may result in undefined
+  behavior.
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/Fleos/CLionProjects/Syntaxe 12 Fonctions/lance_de_des/cmake-build-debug/CMakeFiles/CMakeOutput.log".

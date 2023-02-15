@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int ecritureGrille(char* tab, int x, int y, char joueur, int nb_colonne); // Renvoie 1 si l'écriture est faite, sinon on renvoit 0
-void saisieUtilisateur(int* x, int* y);
-void affichageGrille(char* tab, int nb_ligne, int nb_colonne);
-int victoire (char* tab,int x, int y, char joueur);
-int grillePleine(char* tab,char* tab_de_verif,int* compteur);
+int ecritureGrille(char* tab, int x, int y, char joueur, int nb_colonne); // Ecrit dans la grille le caractère correspondant au joueur qui vient de jouer
+void saisieUtilisateur(int* x, int* y); // Récupère la saisie de l'utilisateur, dans le but de retourner la position à laquelle il souhaite écrire dans la grille
+void affichageGrille(char* tab, int nb_ligne, int nb_colonne);  // On affiche le contenu de la grille
+int victoire (char* tab,int x, int y, char joueur); // On recherche un cas de victoire (Autre méthode de code pour cette fonction dans la correction du TP)
+int grillePleine(char* tab,int* compteur);  // Permet de déterminer si la grille est pleine ou non
 
 int main() {
     printf("TP 10 Jeu du Morpion\n");
@@ -19,23 +19,19 @@ int main() {
             {{'_','_','_'},
              {'_','_','_'},
              {'_','_','_'}};
-    char tab_de_verif[3][3] =
-            {{'_','_','_'},
-             {'_','_','_'},
-             {'_','_','_'}};
     do {
         do {
-            retour_ecriture = 2;
-            if (tour_jeu == tour_joueur1) {
+            retour_ecriture = 2;    // retour écriture confirme que le joueur à écrit dans le tableau et on passe au joueur suivant si c'est le cas
+            if (tour_jeu == tour_joueur1) { // On commence par le joueur 1
                 printf("Joueur 1, A quelle position souhaitez vous jouer ? (x,y)\n");
                 do {
-                    saisieUtilisateur(&coord_x, &coord_y);
-                    retour_ecriture = ecritureGrille((char *) tab, coord_x, coord_y, joueur1, nb_colonne);
-                    fin_de_parti = victoire((char *) tab, coord_x, coord_y, joueur1);
-                    if (retour_ecriture == 1 && fin_de_parti == 0)
-                        tour_jeu = tour_joueur2;
-                } while (retour_ecriture == 0);
-            } else if (tour_jeu == tour_joueur2) {
+                    saisieUtilisateur(&coord_x, &coord_y);  // On effectue la saisie utilisateur
+                    retour_ecriture = ecritureGrille((char *) tab, coord_x, coord_y, joueur1, nb_colonne);  // On récupère la valeur 1 si le joueur a écrit dans le tableau sinon 0
+                    fin_de_parti = victoire((char *) tab, coord_x, coord_y, joueur1);   // On cherche un cas de victoire, si oui alors "fin_de_parti" = 1 sinon 0
+                    if (retour_ecriture == 1 && fin_de_parti == 0)  // Si on a bien écrit et que la partie n'est pas fini
+                        tour_jeu = tour_joueur2;    // On passe au tour du joueur 2
+                } while (retour_ecriture == 0);     // On boucle tant que le joueur 1 n'a pas rentré une position valide pour écrire
+            } else if (tour_jeu == tour_joueur2) {  // Tour du joueur 2 de jouer
                 printf("Joueur 2, A quelle position souhaitez vous jouer ? (x,y)\n");
                 do {
                     saisieUtilisateur(&coord_x, &coord_y);
@@ -45,51 +41,48 @@ int main() {
                         tour_jeu = tour_joueur1;
                 } while (retour_ecriture == 0);
             }
-            if(fin_de_parti == 0)
+            if(fin_de_parti == 0)   // Si la partie n'est pas terminée
             {
-                compteur = grillePleine((char*)tab,(char*)tab_de_verif,&compteur);
-                if(compteur == 3)
-                    fin_de_parti = 1;
+                compteur = grillePleine((char*)tab,&compteur); // On vérifie que la grille ne soit pas complète grace au compteur
+                if(compteur != 0)                               // Si le compteur est différent de 0 alors ça veut dire que la grille est pleine
+                    fin_de_parti = 1;                           // Donc, on met fin à la partie
             }
-            affichageGrille((char *) tab, nb_ligne, nb_colonne);
+            affichageGrille((char *) tab, nb_ligne, nb_colonne);    // On affiche la grille à la fin de chaque tour de jeu
             printf("\n");
-        } while (fin_de_parti != 1);
-        if(compteur == 3){
+        } while (fin_de_parti != 1);                                // On boucle tant que la partie n'est pas fini
+        if(compteur != 0){                                          // Si la partie est finie et que le compteur est différent de 0 on dit que c'est un match nul et on propose de refaire une partie
             printf("Match nul, souhaitez vous refaire une partie :\"Y\" or \"N\" ?\n ");
         }
-        else if(compteur == 0){
-            printf("Bravo, le joueur %d a gagne, souhaitez vous refaire une partie :\"Y\" or \"N\" ?\n",tour_jeu);
+        else if(compteur == 0){                                     // Si la partie est finie, mais que le compteur = 0 alors ca veut dire qu'un des joueurs a gagné
+            printf("Bravo, le joueur %d a gagne, souhaitez vous refaire une partie :\"Y\" or \"N\" ?\n",tour_jeu);  // On annonce le gagnant et on propose de faire une nouvelle partie
         }
         fflush(stdin);
-        scanf("%c",&partie);
-    } while (partie != 'N');
-    return 0;
+        scanf("%c",&partie);    // Récupération de la saisie utilisateur pour savoir si il veut rejouer ou non
+    } while (partie != 'N');    // On boucle tant que l'utilisateur ne retourne pas la lettre "N" pour dire "Non"
+    return 0;   // Fin programme
 }
 
-int grillePleine(char* tab,char* tab_de_verif,int* compteur)
+int grillePleine(char* tab,int* compteur)
 {
     int nb_ligne =3;
     int nb_colonne =3;
-    for(int i =0;i<nb_ligne;i++)
+    for(int i =0;i<nb_ligne;i++) // On parcours notre tableau
     {
-        char* p_ligne_tab = tab + (i *nb_colonne);
-        char* p_ligne_tab_de_verif = tab_de_verif +(i *nb_colonne);
+        char* p_ligne_tab = tab + (i *nb_colonne);  // On créer un pointeur vers notre ligne
         for(int p=0;p<nb_colonne;p++)
         {
-            *(p_ligne_tab_de_verif+p) = *(p_ligne_tab +p);
-            if(*(p_ligne_tab_de_verif +p) != '_')
-                *compteur += 1;
-            else
-                return 0;
+            if(*(p_ligne_tab +p) != '_')    // Si toutes les cases sont différentes d'une case vide alors on compte
+                return 1;
         }
     }
+    return 0;   // Sinon on retourne 0 pour indiquer que la partie n'est pas fini
 }
 void affichageGrille(char* tab, int nb_ligne, int nb_colonne)
 {
     printf("Grille actuelle : \n");
     for(int l=0;l<nb_ligne;l++) // Permet d'afficher la grille des joueurs
     {
-        char* p_ligne = tab + (l * nb_colonne);
+        char* p_ligne = tab + (l * nb_colonne);         // On parcours notre tableau dans le but d'afficher chaque caractère aux utilisateurs
         printf("\n\t");
         for(int c=0;c<nb_colonne;c++)
             printf("%c\t",*(p_ligne + c));
@@ -98,162 +91,161 @@ void affichageGrille(char* tab, int nb_ligne, int nb_colonne)
 }
 void saisieUtilisateur(int* x, int* y)
 {
-    scanf("%d%d", x, y);
+    scanf("%d%d", x, y);        // Lecture et enregistrement de la saisie utilisateur
     fflush(stdin);
-    printf("x : %d, y : %d\n",*x,*y);
 }
 int ecritureGrille(char* tab, int x, int y, char joueur, int nb_colonne)
 {
-    if((x < 1 || x > 3) || (y < 1 || y > 3))
+    if((x < 1 || x > 3) || (y < 1 || y > 3))            // Si les valeurs entrées ne sont pas comprise entre 0 et 3
     {
-            printf("Rentrez une valeur entre 1 et 3\n");
-            return 0;
+        printf("Rentrez une valeur entre 1 et 3\n");    // Alors on retourne une erreur de saisie
+        return 0;
     }
-    x -= 1;
+    x -= 1;                                             // -1 pour que l'utilisateur puisse considérer la première case = 1
     y -= 1;
     char* p_ligne = tab +(x * nb_colonne);
-    char* p_position = p_ligne + y;
-    if(*p_position == '_')
+    char* p_position = p_ligne + y;                     // Pointeur vers la position choisir par l'utilisateur
+    if(*p_position == '_')                              // Si la position est vide alors on écrit
     {
         *p_position = joueur;
         return 1;
     }
-    else if(*p_position != '_')
+    else if(*p_position != '_')                         // Sinon on retourne que la case est déjà prise
     {
         printf("Case deja prise\n");
         return 0;
     }
 }
-int victoire (char* tab,int x, int y, char joueur)
-{
+int victoire (char* tab,int x, int y, char joueur){
     int nb_colonne = 3;
-      switch(x) {
-          case 1:
-              switch (y) {
-                  case 1:
-                      if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                          if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
-                              return 1;
-                          else if (*(tab + ((x + 1) * nb_colonne) + y + 1) == joueur)
-                              if (*(tab + ((x + 2) * nb_colonne) + y + 2) == joueur)
-                                  return 1;
-                              else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                                  if (*(tab + (x * nb_colonne) + y + 2) == joueur)
-                                      return 1;
-                                  else
-                                      return 0;
-                      break;
-                  case 2:
-                      if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                          if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
-                              return 1;
-                          else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                              if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                                  return 1;
-                              else
-                                  return 0;
-                      break;
-                  case 3:
-                      if (*(tab + ((x + 1) * nb_colonne) + y - 1) == joueur)
-                          if (*(tab + ((x + 2) * nb_colonne) + y - 2) == joueur)
-                              return 1;
-                          else if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                              if (*(tab + (x * nb_colonne) + y - 2) == joueur)
-                                  return 1;
-                              else if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                                  if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
-                                      return 1;
-                                  else
-                                      return 0;
-                      break;
-                  default:
-                      return 0;
-              }
-      case 2:
-          switch (y) {
-              case 1:
-                  if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                      if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                          return 1;
-                      else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                          if (*(tab + (x * nb_colonne) + y + 2) == joueur)
-                              return 1;
-                          else
-                              return 0;
-                  break;
-              case 2:
-                  if (*(tab + ((x + 1) * nb_colonne) + y + 1) == joueur)
-                      if (*(tab + ((x - 1) * nb_colonne) + y - 1) == joueur)
-                          return 1;
-                      else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                          if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                              return 1;
-                          else if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                              if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                                  return 1;
-                  if (*(tab + ((x + 1) * nb_colonne) + y - 1) == joueur)
-                      if (*(tab + ((x - 1) * nb_colonne) + y + 1) == joueur)
-                          return 1;
-                      else
-                          return 0;
-                  break;
-              case 3:
-                  if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)
-                      if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                          return 1;
-                      else if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                          if (*(tab + (x * nb_colonne) + y - 2) == joueur)
-                              return 1;
-                          else
-                              return 0;
-                  break;
-              default:
-                  return 0;
-          }
-              case 3:
-              switch (y) {
-                  case 1:
-                      if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                          if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
-                              return 1;
-                          else if (*(tab + ((x - 1) * nb_colonne) + y + 1) == joueur)
-                              if (*(tab + ((x - 2) * nb_colonne) + y + 2) == joueur)
-                                  return 1;
-                              else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                                  if (*(tab + (x * nb_colonne) + y + 2) == joueur)
-                                      return 1;
-                                  else
-                                      return 0;
-                      break;
-                  case 2:
-                      if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                          if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
-                              return 1;
-                          else if (*(tab + (x * nb_colonne) + y + 1) == joueur)
-                              if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                                  return 1;
-                              else
-                                  return 0;
-                      break;
-                  case 3:
-                      if (*(tab + ((x - 1) * nb_colonne) + y - 1) == joueur)
-                          if (*(tab + ((x - 2) * nb_colonne) + y - 2) == joueur)
-                              return 1;
-                          else if (*(tab + (x * nb_colonne) + y - 1) == joueur)
-                              if (*(tab + (x * nb_colonne) + y - 2) == joueur)
-                                  return 1;
-                              else if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
-                                  if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
-                                      return 1;
-                                  else
-                                      return 0;
-                  default:
-                      return 0;
-              }
-          default:
-              return 0;
-      }
+    switch(x) {         // On parcours chaque cas en fonction de l'emplacement choisi par le joueur pour chercher un cas de victoire pour le joueur qui vient de jouer
+        case 1:         // Cas ou on est sur la première ligne
+            switch (y) {
+                case 1: // 1ère colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)      // On regarde si les deux lignes en dessous
+                        if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + ((x + 1) * nb_colonne) + y + 1) == joueur) // On regarde la diagonale en bas à droite
+                            if (*(tab + ((x + 2) * nb_colonne) + y + 2) == joueur)
+                                return 1;
+                            else if (*(tab + (x * nb_colonne) + y + 1) == joueur)   // On regarde la ligne à droite
+                                if (*(tab + (x * nb_colonne) + y + 2) == joueur)
+                                    return 1;
+                                else
+                                    return 0;
+                    break;
+                case 2: // 2ème colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)  // On regarde la ligne en dessous
+                        if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y + 1) == joueur)   // On regarde à droite puis à gauche
+                            if (*(tab + (x * nb_colonne) + y - 1) == joueur)
+                                return 1;
+                            else
+                                return 0;
+                    break;
+                case 3: // 3ème colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y - 1) == joueur)  // On regarde la diagonale en bas à gauche
+                        if (*(tab + ((x + 2) * nb_colonne) + y - 2) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y - 1) == joueur)   // On regarde la ligne à gauche
+                            if (*(tab + (x * nb_colonne) + y - 2) == joueur)
+                                return 1;
+                            else if (*(tab + ((x + 1) * nb_colonne) + y) == joueur) // On regarde la ligne en dessous
+                                if (*(tab + ((x + 2) * nb_colonne) + y) == joueur)
+                                    return 1;
+                                else
+                                    return 0;
+                    break;
+                default:
+                    return 0;
+            }
+        case 2:     // Cas 2ème ligne
+            switch (y) {
+                case 1: // 1ère colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)  // On regarde au-dessus et à droite
+                        if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y + 1) == joueur)   // On regarde la ligne à droite
+                            if (*(tab + (x * nb_colonne) + y + 2) == joueur)
+                                return 1;
+                            else
+                                return 0;
+                    break;
+                case 2: // 2ème colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y + 1) == joueur)  // On regarde la diagonale en bas à droite puis en haut à gauche
+                        if (*(tab + ((x - 1) * nb_colonne) + y - 1) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y + 1) == joueur)  // On regarde à droite et à gauche
+                            if (*(tab + (x * nb_colonne) + y - 1) == joueur)
+                                return 1;
+                            else if (*(tab + ((x + 1) * nb_colonne) + y) == joueur) // On regarde à dessus et en dessus
+                                if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
+                                    return 1;
+                    if (*(tab + ((x + 1) * nb_colonne) + y - 1) == joueur)  // On regarde la diagonale en bas à gauche puis en haut à droite
+                        if (*(tab + ((x - 1) * nb_colonne) + y + 1) == joueur)
+                            return 1;
+                        else
+                            return 0;
+                    break;
+                case 3: // 3ème colonne
+                    if (*(tab + ((x + 1) * nb_colonne) + y) == joueur)  // On regarde en haute et en bas
+                        if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y - 1) == joueur)   // On regarde la ligne à gauche
+                            if (*(tab + (x * nb_colonne) + y - 2) == joueur)
+                                return 1;
+                            else
+                                return 0;
+                    break;
+                default:
+                    return 0;
+            }
+        case 3:     // Cas 3ème ligne
+            switch (y) {
+                case 1: // 1 ère colonne
+                    if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)  // On regarde la ligne au-dessus
+                        if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + ((x - 1) * nb_colonne) + y + 1) == joueur) // On regarde la diagonale en haut à droite
+                            if (*(tab + ((x - 2) * nb_colonne) + y + 2) == joueur)
+                                return 1;
+                            else if (*(tab + (x * nb_colonne) + y + 1) == joueur)   // On regarde la ligne à droite
+                                if (*(tab + (x * nb_colonne) + y + 2) == joueur)
+                                    return 1;
+                                else
+                                    return 0;
+                    break;
+                case 2: // 2 ème colonne
+                    if (*(tab + ((x - 1) * nb_colonne) + y) == joueur)  // On regarde la ligne au-dessus
+                        if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y + 1) == joueur)   // On regarde à droite puis à gauche
+                            if (*(tab + (x * nb_colonne) + y - 1) == joueur)
+                                return 1;
+                            else
+                                return 0;
+                    break;
+                case 3: // 3ème colonne
+                    if (*(tab + ((x - 1) * nb_colonne) + y - 1) == joueur)  // On regarde la diagonale en haut à droite
+                        if (*(tab + ((x - 2) * nb_colonne) + y - 2) == joueur)
+                            return 1;
+                        else if (*(tab + (x * nb_colonne) + y - 1) == joueur)   // On regarde la ligne à gauche
+                            if (*(tab + (x * nb_colonne) + y - 2) == joueur)
+                                return 1;
+                            else if (*(tab + ((x - 1) * nb_colonne) + y) == joueur) // On regarde la ligne en haut
+                                if (*(tab + ((x - 2) * nb_colonne) + y) == joueur)
+                                    return 1;
+                                else
+                                    return 0;
+                default:
+                    return 0;
+            }
+        default: // Tous les "default" dans les switch case retourne 0 dans le cas ou on a une erreur.(Il ne se passe donc rien)
+            return 0;
+    }
 }
+
 /* ** Algo pour la fin de partie **
  *
  * On lit la position ou le joueur à écrit

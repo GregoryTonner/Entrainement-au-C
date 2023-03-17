@@ -25,9 +25,11 @@ while(choix_joueur != 'N')
                 // On assigne la lettre correpondante à la valeur random à notre case du tableau des couleurs à trouver
         }
         int nb_essai =3;
+        int bien_place =0;
+
         do {
             int mal_place =0;   // On remet les deux variables à 0 à chaque tour de jeu
-            int bien_place =0;
+            bien_place =0;
 
             printf("Veuillez rentrer vos 4 couleurs dans l'ordre : (Parmis les couleurs suivantes {R, B, J, V, O})\n");
             scanf("%c%c%c%c", &couleur_joueur[0], &couleur_joueur[1], &couleur_joueur[2], &couleur_joueur[3]);  // On écrit dans le tableau la saisie utilisateuR

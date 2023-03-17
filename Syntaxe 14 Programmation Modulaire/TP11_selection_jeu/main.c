@@ -11,6 +11,7 @@ int main() {
         introJeu();
         scanf("%d", &saisie_utilisateur);
         choix = selectionJeu(saisie_utilisateur);
+        printf("%d\n",choix);
     }while (choix != SORTIR);
 
     return 0;

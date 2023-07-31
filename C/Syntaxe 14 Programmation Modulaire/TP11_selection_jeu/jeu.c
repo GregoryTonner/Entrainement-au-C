@@ -9,10 +9,9 @@
 
 void introJeu(void)
 {
-
     printf("Bonjour, bienvenue dans votre bibliotheque de jeu en C\n");
     printf("Voici vos choix de jeu :\n\t 1 - Morpion\n\t 2 - Pendu\n\t 3 - Mastermind\n\t 0 - Sortir\n");
-    printf("Entrez un chiffre pour valider votre choix ? :\t");
+    printf("Entrez un chiffre present devant le jeu pour valider votre choix :\t");
     fflush(stdin);
 }
 int selectionJeu(int saisie_utilisateur)
@@ -221,23 +220,18 @@ int victoire (char tab[][3], char joueur){
         if(tab[x][0] == joueur && tab[x][1] == joueur && tab[x][2] == joueur)
             return 1;
     }
-
     // test des colonnes
     for(int y=0; y<3; y++)
     {
         if(tab[0][y] == joueur && tab[1][y] == joueur && tab[2][y] == joueur)
             return 1;
     }
-
     //test de la diagonale
     if(tab[0][0] == joueur && tab[1][1] == joueur && tab[2][2] == joueur)
         return 1;
-
     //test de la diagonale inverse
     if(tab[2][0] == joueur && tab[1][1] == joueur && tab[0][2] == joueur)
         return 1;
-
-
     return 0;
 }
 void pendu() {

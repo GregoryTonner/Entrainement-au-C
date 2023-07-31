@@ -1,0 +1,15 @@
+# ninja log v5
+1	294	7125145032916116	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+296	687	7125145036485042	exo_lire_fichier.exe	200a5c606a74c375
+2	270	7125145169885538	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+270	654	7125145173372789	exo_lire_fichier.exe	200a5c606a74c375
+1	295	7125145498900422	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+297	682	7125145502402839	exo_lire_fichier.exe	200a5c606a74c375
+2	268	7125145734664352	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+269	665	7125145738214365	exo_lire_fichier.exe	200a5c606a74c375
+2	279	7125147183640520	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+281	686	7125147187305437	exo_lire_fichier.exe	200a5c606a74c375
+2	270	7125148146176891	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+271	660	7125148149609338	exo_lire_fichier.exe	200a5c606a74c375
+2	280	7125148270022598	CMakeFiles/exo_lire_fichier.dir/main.c.obj	4d415c31995e4a68
+281	674	7125148273550514	exo_lire_fichier.exe	200a5c606a74c375

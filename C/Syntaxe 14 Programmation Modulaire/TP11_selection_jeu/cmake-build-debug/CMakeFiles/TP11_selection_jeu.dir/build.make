@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Users\SESA583772\AppData\Local\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Users\SESA583772\AppData\Local\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu"
+CMAKE_SOURCE_DIR = "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TP11_selection_jeu.dir/depend.make
@@ -69,32 +69,32 @@ include CMakeFiles/TP11_selection_jeu.dir/progress.make
 include CMakeFiles/TP11_selection_jeu.dir/flags.make
 
 CMakeFiles/TP11_selection_jeu.dir/main.c.obj: CMakeFiles/TP11_selection_jeu.dir/flags.make
-CMakeFiles/TP11_selection_jeu.dir/main.c.obj: C:/Users/user/CLionProjects/Entrainement-au-C/Entrainement-au-C/Syntaxe\ 14\ Programmation\ Modulaire/TP11_selection_jeu/main.c
+CMakeFiles/TP11_selection_jeu.dir/main.c.obj: C:/Users/SESA583772/Documents/GitHub/Entrainement-au-C/C/Syntaxe\ 14\ Programmation\ Modulaire/TP11_selection_jeu/main.c
 CMakeFiles/TP11_selection_jeu.dir/main.c.obj: CMakeFiles/TP11_selection_jeu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TP11_selection_jeu.dir/main.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TP11_selection_jeu.dir/main.c.obj -MF CMakeFiles\TP11_selection_jeu.dir\main.c.obj.d -o CMakeFiles\TP11_selection_jeu.dir\main.c.obj -c "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/TP11_selection_jeu.dir/main.c.obj"
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TP11_selection_jeu.dir/main.c.obj -MF CMakeFiles\TP11_selection_jeu.dir\main.c.obj.d -o CMakeFiles\TP11_selection_jeu.dir\main.c.obj -c "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c"
 
 CMakeFiles/TP11_selection_jeu.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TP11_selection_jeu.dir/main.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c" > CMakeFiles\TP11_selection_jeu.dir\main.c.i
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c" > CMakeFiles\TP11_selection_jeu.dir\main.c.i
 
 CMakeFiles/TP11_selection_jeu.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TP11_selection_jeu.dir/main.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c" -o CMakeFiles\TP11_selection_jeu.dir\main.c.s
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\main.c" -o CMakeFiles\TP11_selection_jeu.dir\main.c.s
 
 CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj: CMakeFiles/TP11_selection_jeu.dir/flags.make
-CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj: C:/Users/user/CLionProjects/Entrainement-au-C/Entrainement-au-C/Syntaxe\ 14\ Programmation\ Modulaire/TP11_selection_jeu/jeu.c
+CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj: C:/Users/SESA583772/Documents/GitHub/Entrainement-au-C/C/Syntaxe\ 14\ Programmation\ Modulaire/TP11_selection_jeu/jeu.c
 CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj: CMakeFiles/TP11_selection_jeu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj -MF CMakeFiles\TP11_selection_jeu.dir\jeu.c.obj.d -o CMakeFiles\TP11_selection_jeu.dir\jeu.c.obj -c "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj"
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/TP11_selection_jeu.dir/jeu.c.obj -MF CMakeFiles\TP11_selection_jeu.dir\jeu.c.obj.d -o CMakeFiles\TP11_selection_jeu.dir\jeu.c.obj -c "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c"
 
 CMakeFiles/TP11_selection_jeu.dir/jeu.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/TP11_selection_jeu.dir/jeu.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c" > CMakeFiles\TP11_selection_jeu.dir\jeu.c.i
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c" > CMakeFiles\TP11_selection_jeu.dir\jeu.c.i
 
 CMakeFiles/TP11_selection_jeu.dir/jeu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/TP11_selection_jeu.dir/jeu.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c" -o CMakeFiles\TP11_selection_jeu.dir\jeu.c.s
+	C:\Users\SESA58~1\AppData\Local\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\jeu.c" -o CMakeFiles\TP11_selection_jeu.dir\jeu.c.s
 
 # Object files for target TP11_selection_jeu
 TP11_selection_jeu_OBJECTS = \
@@ -110,7 +110,7 @@ TP11_selection_jeu.exe: CMakeFiles/TP11_selection_jeu.dir/build.make
 TP11_selection_jeu.exe: CMakeFiles/TP11_selection_jeu.dir/linklibs.rsp
 TP11_selection_jeu.exe: CMakeFiles/TP11_selection_jeu.dir/objects1.rsp
 TP11_selection_jeu.exe: CMakeFiles/TP11_selection_jeu.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable TP11_selection_jeu.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable TP11_selection_jeu.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\TP11_selection_jeu.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/TP11_selection_jeu.dir/clean:
 .PHONY : CMakeFiles/TP11_selection_jeu.dir/clean
 
 CMakeFiles/TP11_selection_jeu.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu" "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu" "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug" "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug" "C:\Users\user\CLionProjects\Entrainement-au-C\Entrainement-au-C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles\TP11_selection_jeu.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu" "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu" "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug" "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug" "C:\Users\SESA583772\Documents\GitHub\Entrainement-au-C\C\Syntaxe 14 Programmation Modulaire\TP11_selection_jeu\cmake-build-debug\CMakeFiles\TP11_selection_jeu.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/TP11_selection_jeu.dir/depend
 

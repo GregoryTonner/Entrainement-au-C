@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Exo_variable_dynamique",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Exo_variable_dynamique::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Exo_variable_dynamique-Debug-9aa404483f364f9bf2eb.json",
+					"name" : "Exo_variable_dynamique",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/SESA583772/Documents/GitHub/Entrainement-au-C/C/Syntaxe 16 Allocation dynamique de la memoire/Exo_variable_dynamique/cmake-build-debug",
+		"source" : "C:/Users/SESA583772/Documents/GitHub/Entrainement-au-C/C/Syntaxe 16 Allocation dynamique de la memoire/Exo_variable_dynamique"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
